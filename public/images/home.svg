@@ -1,0 +1,13 @@
+<svg width="500" height="300" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f3460"/>
+      <stop offset="100%" stop-color="#16213e"/>
+    </linearGradient>
+  </defs>
+  <rect width="500" height="300" fill="url(#bg)" rx="16"/>
+  <circle cx="250" cy="110" r="55" fill="#e94560"/>
+  <text x="250" y="122" font-size="42" text-anchor="middle" fill="white" font-family="Arial">⚙️</text>
+  <text x="250" y="200" font-size="26" text-anchor="middle" fill="white" font-family="Arial" font-weight="bold">Home Page</text>
+  <text x="250" y="230" font-size="14" text-anchor="middle" fill="#c7d2e0" font-family="Arial">DevOps Pipeline App</text>
+</svg>
