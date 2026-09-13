@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: secure-cicd-project
+  namespace: argocd
+spec:
+  description: Restricted project for secure-cicd-pipeline app — least privilege
+  sourceRepos:
+    - https://github.com/shahzaib-rehman005/secure-cicd-pipeline.git
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: secure-app
+  clusterResourceWhitelist: []
+  namespaceResourceWhitelist:
+    - group: apps
+      kind: Deployment
+    - group: apps
+      kind: ReplicaSet
+    - group: ""
+      kind: Pod
+    - group: ""
+      kind: Service

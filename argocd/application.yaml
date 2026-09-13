@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: secure-cicd-app
+  namespace: argocd
+spec:
+  project: secure-cicd-project
+  source:
+    repoURL: https://github.com/shahzaib-rehman005/secure-cicd-pipeline.git
+    targetRevision: main
+    path: k8s
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: secure-app
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
