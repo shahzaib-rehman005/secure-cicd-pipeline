@@ -22,7 +22,9 @@ pipeline {
 
         stage('OWASP Dependency-Check') {
             steps {
-                dependencyCheck additionalArguments: '--format XML --format HTML --scan .', odcInstallation: 'OWASP-DC'
+                withCredentials([string(credentialsId: 'nvd-api-key', variable: 'NVD_API_KEY')]) {
+                    dependencyCheck additionalArguments: "--format XML --format HTML --scan . --nvdApiKey ${NVD_API_KEY}", odcInstallation: 'OWASP-DC'
+                }
                 dependencyCheckPublisher pattern: 'dependency-check-report.xml'
             }
         }
