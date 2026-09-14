@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: secure-app
-        image: bunny324/secure-app:2edcdff
+        image: bunny324/secure-app:aa898d7
         ports:
         - containerPort: 3000
         resources:
