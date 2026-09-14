@@ -1,0 +1,20 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: secure-app-alerts
+  namespace: monitoring
+  labels:
+    release: monitoring
+spec:
+  groups:
+  - name: secure-app.rules
+    rules:
+    - alert: SecureAppDown
+      expr: absent(up{job="secure-app-service"}) == 1
+      for: 2m
+      labels:
+        severity: critical
+        namespace: secure-app
+      annotations:
+        summary: "Secure app pod down"
+        description: "secure-app-service ka ek pod 2 minute se down hai."
