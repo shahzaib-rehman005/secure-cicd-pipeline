@@ -10,7 +10,9 @@ spec:
   destinations:
     - server: https://kubernetes.default.svc
       namespace: secure-app
-  clusterResourceWhitelist: []
+  clusterResourceWhitelist:
+    - group: ""
+      kind: Namespace
   namespaceResourceWhitelist:
     - group: apps
       kind: Deployment
